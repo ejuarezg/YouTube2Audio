@@ -43,7 +43,7 @@ class MainPage(QMainWindow, UiMainWindow):
         # Connect the delete video button with the remove_selected_items fn.
         self.remove_from_table_button.clicked.connect(self.remove_selected_items)
         # Buttons connection with the appropriate functions
-        self.save_as_mp3_box.setChecked(True)
+        self.save_as_mp4_box.setChecked(True)
         self.save_as_mp3_box.clicked.connect(self.set_check_mp3_box)
         self.save_as_mp4_box.clicked.connect(self.set_check_mp4_box)
         self.url_load_button.clicked.connect(self.url_loading_button_click)
