@@ -18,6 +18,7 @@ from ui import UiMainWindow
 
 
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+DOWNLOAD_PATH = utils.get_download_path(BASE_PATH)
 IMG_PATH = os.path.join(BASE_PATH, "img")
 UTILS_PATH = os.path.join(BASE_PATH, "utils")
 
@@ -62,7 +63,7 @@ class MainPage(QMainWindow, UiMainWindow):
         # Exit application
         self.cancel_button.clicked.connect(self.close)
         # Get download directory
-        self.download_dir = BASE_PATH
+        self.download_dir = DOWNLOAD_PATH
         self.download_folder_select.setText(
             self.get_parent_current_dir(self.download_dir)  # get directory tail
         )
@@ -140,10 +141,10 @@ class MainPage(QMainWindow, UiMainWindow):
     def get_download_path(self):
         """Fetch download file path"""
         self.download_dir = QFileDialog.getExistingDirectory(
-            self, "Open folder", BASE_PATH
+            self, "Open folder", DOWNLOAD_PATH
         )
         if not self.download_dir:
-            self.download_dir = BASE_PATH
+            self.download_dir = DOWNLOAD_PATH
 
         self.download_folder_select.setText(
             self.get_parent_current_dir(self.download_dir)
